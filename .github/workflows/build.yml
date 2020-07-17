@@ -19,3 +19,5 @@ jobs:
       run: npm i
     - name: Test
       run: npm test
+      env:
+        PUSH_NOTIF_PUBLIC_KEY: ${{ secrets.PUSH_NOTIF_PUBLIC_KEY }}
