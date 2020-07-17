@@ -1,0 +1,13 @@
+handler: lambdas/hello-world/index.handler
+name: ${self:service.name}-hello-world-lambda
+layers:
+  - { Ref: ApiLayerLambdaLayer }
+package:
+  include:
+    - lambdas/hello-world/index.js
+    - lambdas/hello-world/node_modules/**
+events:
+  - http:
+      method: get
+      path: hello
+      cors: true
