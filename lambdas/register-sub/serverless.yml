@@ -1,0 +1,12 @@
+handler: lambdas/register-sub/register-sub.handler
+name: ${self:service.name}-register-sub-lambda
+layers:
+  - { Ref: ApiLayerLambdaLayer }
+package:
+  include:
+    - lambdas/register-sub/register-sub.js
+events:
+  - http:
+      method: post
+      path: register
+      cors: true

@@ -1,8 +1,8 @@
 {
-  "name": "hello-world",
+  "name": "register-sub",
   "version": "1.0.0",
   "description": "",
-  "main": "index.1.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
