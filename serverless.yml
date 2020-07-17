@@ -34,5 +34,6 @@ provider:
 functions:
   RegisterSub: ${file(./lambdas/register-sub/serverless.yml)}
   DeregisterSub: ${file(./lambdas/deregister-sub/serverless.yml)}
+  PublicKey: ${file(./lambdas/public-key/serverless.yml)}
 layers:
   ApiLayer: ${file(./layer/serverless.yml)}
