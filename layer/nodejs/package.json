@@ -12,5 +12,8 @@
     "Holger Will <h.will@klimapartner.de>",
     "Alexis Lemaire <a.lemaire@klimapartner.de>"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "web-push": "^3.4.4"
+  }
 }
