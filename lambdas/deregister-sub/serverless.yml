@@ -1,0 +1,12 @@
+handler: lambdas/deregister-sub/deregister-sub.handler
+name: ${self:service.name}-deregister-sub-lambda
+layers:
+  - { Ref: ApiLayerLambdaLayer }
+package:
+  include:
+    - lambdas/deregister-sub/deregister-sub.js
+events:
+  - http:
+      method: post
+      path: deregister
+      cors: true
