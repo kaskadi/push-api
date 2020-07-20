@@ -5,7 +5,7 @@ module.exports.handler = async (event) => {
       'Access-Control-Allow-Origin': '*'
     },
     body: JSON.stringify({
-      message: 'Hello World!'
+      publicKey: process.env.PUSH_NOTIF_PUBLIC_KEY
     })
   }
 }
