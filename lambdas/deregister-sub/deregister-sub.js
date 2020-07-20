@@ -1,3 +1,5 @@
+const getJwtUser = require('get-jwt-user')
+
 module.exports.handler = async (event) => {
   return {
     statusCode: 200,
@@ -5,7 +7,7 @@ module.exports.handler = async (event) => {
       'Access-Control-Allow-Origin': '*'
     },
     body: JSON.stringify({
-      message: 'Hello World!'
+      message: getJwtUser()
     })
   }
 }

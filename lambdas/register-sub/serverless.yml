@@ -5,6 +5,7 @@ layers:
 package:
   include:
     - lambdas/register-sub/register-sub.js
+    - lambdas/register-sub/helpers/**
 events:
   - http:
       method: post
