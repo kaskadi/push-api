@@ -29,6 +29,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_KEY_SECRET }}
         PUSH_NOTIF_PUBLIC_KEY: ${{ secrets.PUSH_NOTIF_PUBLIC_KEY }}
+        COGNITO_USER_POOL_ARN: ${{ secrets.COGNITO_USER_POOL_ARN }}
     - name: serverless-deploy
       uses: kaskadi/action-slscli@master
       with:
@@ -37,3 +38,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_KEY_SECRET }}
         PUSH_NOTIF_PUBLIC_KEY: ${{ secrets.PUSH_NOTIF_PUBLIC_KEY }}
+        COGNITO_USER_POOL_ARN: ${{ secrets.COGNITO_USER_POOL_ARN }}
