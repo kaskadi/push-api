@@ -1,19 +1,15 @@
 {
-  "name": "layer",
+  "name": "register-sub",
   "version": "1.0.0",
   "description": "",
-  "main": "",
+  "main": "register-sub.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "Klimapartner GmbH <kontakt@klimapartner.de> (https://klimapartner.de)",
   "contributors": [
     "Holger Will <h.will@klimapartner.de>",
     "Alexis Lemaire <a.lemaire@klimapartner.de>"
   ],
-  "license": "MIT",
-  "dependencies": {
-    "aws-es-client": "^1.0.2"
-  }
+  "license": "MIT"
 }

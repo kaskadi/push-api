@@ -1,0 +1,18 @@
+handler: lambdas/public-key/public-key.handler
+name: ${self:service.name}-public-key-lambda
+layers:
+  - { Ref: ApiLayerLambdaLayer }
+package:
+  include:
+    - lambdas/public-key/public-key.js
+    - lambdas/public-key/node_modules/**
+environment:
+  PUSH_NOTIF_PUBLIC_KEY: ${env:PUSH_NOTIF_PUBLIC_KEY}
+events:
+  - http:
+      method: get
+      path: public-key
+      cors: true
+      authorizer:
+        type: COGNITO_USER_POOLS
+        authorizerId: !Ref CognitoAuthorizer
