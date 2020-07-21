@@ -1,4 +1,4 @@
-const getJwtUser = require('get-jwt-user')
+const { getJwtUser } = require('push-api-utils')
 const addSub = require('./helpers/add-sub.js')
 
 module.exports.handler = async (event) => {
