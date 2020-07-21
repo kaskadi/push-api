@@ -14,7 +14,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "aws-es-client": "^1.0.2",
-    "web-push": "^3.4.4"
+    "aws-es-client": "^1.0.2"
   }
 }
