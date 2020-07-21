@@ -3,7 +3,7 @@ const removeSub = require('./helpers/remove-sub.js')
 
 module.exports.handler = async (event) => {
   var res = {
-    statusCode: 201,
+    statusCode: 200,
     headers: {
       'Access-Control-Allow-Origin': '*'
     }
