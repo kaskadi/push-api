@@ -11,13 +11,21 @@ module.exports = (user, sub) => {
     body: {
       script: {
         lang: 'painless',
-        source: `ctx._source.subscriptions += "${sub}"`
+        source: 'ctx._source.subscriptions.add(params.sub)',
+        params: {
+          sub: sub
+        }
       },
       query: {
         bool: {
           must: {
             match: {
               _id: user
+            }
+          },
+          must_not: {
+            match: {
+              'subscriptions.endpoint': sub.endpoint
             }
           }
         }

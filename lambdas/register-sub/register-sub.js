@@ -1,5 +1,5 @@
 const getJwtUser = require('get-jwt-user')
-const registerSubs = require('./helpers/register-subs.js')
+const addSub = require('./helpers/add-sub.js')
 
 module.exports.handler = async (event) => {
   var res = {
@@ -8,8 +8,7 @@ module.exports.handler = async (event) => {
       'Access-Control-Allow-Origin': '*'
     }
   }
-  console.log(event.body)
-  return await registerSubs(getJwtUser(event.headers.Authorization), event.body)
+  return await addSub(getJwtUser(event.headers.Authorization), JSON.parse(event.body))
     .then(esRes => {
       res.body = JSON.stringify({ message: 'Subscriptions successfully added!' })
       console.log(JSON.stringify(esRes, null, 2))
