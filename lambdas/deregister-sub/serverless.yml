@@ -10,3 +10,6 @@ events:
       method: post
       path: deregister
       cors: true
+      authorizer:
+        type: COGNITO_USER_POOLS
+        authorizerId: !Ref CognitoAuthorizer
