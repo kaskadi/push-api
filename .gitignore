@@ -1,2 +1,2 @@
 **/node_modules/*
-!layer/nodejs/node_modules/get-jwt-user
+!layer/nodejs/node_modules/push-api-utils
