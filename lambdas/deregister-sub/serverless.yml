@@ -1,5 +1,5 @@
 handler: lambdas/deregister-sub/deregister-sub.handler
-name: ${self:service.name}-deregister-sub-lambda
+name: deregister-sub
 layers:
   - { Ref: ApiLayerLambdaLayer }
 package:

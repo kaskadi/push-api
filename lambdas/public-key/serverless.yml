@@ -1,10 +1,10 @@
-handler: lambdas/public-key/public-key.handler
-name: ${self:service.name}-public-key-lambda
+handler: lambdas/public-key/get-public-key.handler
+name: get-public-key
 layers:
   - { Ref: ApiLayerLambdaLayer }
 package:
   include:
-    - lambdas/public-key/public-key.js
+    - lambdas/public-key/get-public-key.js
 environment:
   PUSH_NOTIF_PUBLIC_KEY: ${env:PUSH_NOTIF_PUBLIC_KEY}
 events:

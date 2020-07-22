@@ -1,5 +1,5 @@
 handler: lambdas/register-sub/register-sub.handler
-name: ${self:service.name}-register-sub-lambda
+name: register-sub
 layers:
   - { Ref: ApiLayerLambdaLayer }
 package:
