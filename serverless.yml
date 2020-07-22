@@ -3,8 +3,7 @@ service:
 package:
   individually: true
   exclude:
-    - .*/**
-    - "*"
+    - '**/**'
 plugins:
   - serverless-aws-documentation
   - serverless-offline
