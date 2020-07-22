@@ -1,6 +1,4 @@
-const { getJwtUser, esUpdateByQuery } = require('push-api-utils')
-const getQuery = require('./helpers/get-query.js')
-const getScript = require('./helpers/get-script.js')
+const { getJwtUser, esUpdateByQuery, getScript, getQuery } = require('push-api-utils')
 
 module.exports.handler = async (event) => {
   var res = {
@@ -11,7 +9,7 @@ module.exports.handler = async (event) => {
   }
   const user = getJwtUser(event.headers.Authorization)
   const sub = JSON.parse(event.body)
-  return await esUpdateByQuery(getScript(sub), getQuery(user, sub))
+  return await esUpdateByQuery(getScript(sub, 'deregister'), getQuery(user, sub, 'deregister'))
     .then(esRes => {
       res.body = JSON.stringify({ message: 'Subscriptions successfully unregistered!' })
       console.log(JSON.stringify(esRes, null, 2))
