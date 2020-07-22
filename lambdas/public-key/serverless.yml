@@ -5,8 +5,6 @@ layers:
 package:
   include:
     - lambdas/public-key/get-public-key.js
-environment:
-  PUSH_NOTIF_PUBLIC_KEY: ${env:PUSH_NOTIF_PUBLIC_KEY}
 events:
   - http:
       method: get
