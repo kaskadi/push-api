@@ -5,6 +5,10 @@ layers:
 package:
   include:
     - lambdas/register-sub/register-sub.js
+environment:
+  ES_ID: ${env:ES_ID}
+  ES_SECRET: ${env:ES_SECRET}
+  ES_ENDPOINT: ${env:ES_ENDPOINT}
 events:
   - http:
       method: post
