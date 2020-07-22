@@ -4,7 +4,8 @@
   "description": "Layer for push-api",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cp -r push-api-utils node_modules/push-api-utils"
   },
   "keywords": [],
   "author": "Klimapartner GmbH <kontakt@klimapartner.de> (https://klimapartner.de)",
