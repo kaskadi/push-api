@@ -1,4 +1,5 @@
-const { getJwtUser, esUpdateByQuery, getScript, getQuery } = require('push-api-utils')
+const getJwtUser = require('./helpers/get-jwt-user.js')
+const addSub = require('./helpers/add-sub.js')
 
 module.exports.handler = async (event) => {
   var res = {
@@ -9,7 +10,7 @@ module.exports.handler = async (event) => {
   }
   const user = getJwtUser(event.headers.Authorization)
   const sub = JSON.parse(event.body)
-  return await esUpdateByQuery(getScript(sub, 'register'), getQuery(user, sub, 'register'))
+  return await addSub(user, sub)
     .then(esRes => {
       res.body = JSON.stringify({ message: 'Subscriptions successfully registered!' })
       console.log(JSON.stringify(esRes, null, 2))
