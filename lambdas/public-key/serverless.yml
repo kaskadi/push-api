@@ -5,6 +5,7 @@ layers:
 package:
   include:
     - lambdas/public-key/get-public-key.js
+    - lambdas/public-key/helpers/**
 events:
   - http:
       method: get
