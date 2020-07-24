@@ -1,5 +1,6 @@
 const getJwtUser = require('./helpers/get-jwt-user.js')
 const addSub = require('./helpers/add-sub.js')
+const es = require('create-es-client')
 
 module.exports.handler = async (event) => {
   var res = {
@@ -10,7 +11,7 @@ module.exports.handler = async (event) => {
   }
   const user = getJwtUser(event.headers.Authorization)
   const sub = JSON.parse(event.body)
-  return await addSub(user, sub)
+  return await addSub(es, user, sub)
     .then(esRes => {
       res.body = JSON.stringify({ message: 'Subscriptions successfully registered!' })
       console.log(JSON.stringify(esRes, null, 2))
