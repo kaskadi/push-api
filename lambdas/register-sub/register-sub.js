@@ -1,6 +1,6 @@
 const getJwtUser = require('./helpers/get-jwt-user.js')
 const addSub = require('./helpers/add-sub.js')
-const es = require('create-es-client')
+const es = require('create-es-client')()
 
 module.exports.handler = async (event) => {
   var res = {
