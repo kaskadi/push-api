@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cp -r create-es-client node_modules/create-es-client"
+    "postinstall": "mkdir -p node_modules && cp -r create-es-client node_modules/create-es-client"
   },
   "keywords": [],
   "author": "Klimapartner GmbH <kontakt@klimapartner.de> (https://klimapartner.de)",
