@@ -14,3 +14,10 @@ events:
       authorizer:
         type: COGNITO_USER_POOLS
         authorizerId: !Ref CognitoAuthorizer
+      kaskadi-docs:
+        description: This endpoint allows a client to register for push-notification. The body should contain subscription data as defined [here](https://developers.google.com/web/ilt/pwa/introduction-to-push-notifications#how_web_push_works).
+        body:
+          - key: endpoint
+            description: Client endpoint for the push-notification system.
+          - key: keys
+            description: `Object` - set of keys used for authenticaton when pushing notification to the client.

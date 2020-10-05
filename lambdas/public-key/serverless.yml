@@ -14,3 +14,5 @@ events:
       authorizer:
         type: COGNITO_USER_POOLS
         authorizerId: !Ref CognitoAuthorizer
+      kaskadi-docs:
+        description: This endpoint returns the public key used in the push-notification protocol.
