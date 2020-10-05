@@ -20,4 +20,4 @@ events:
           - key: endpoint
             description: Client endpoint for the push-notification system.
           - key: keys
-            description: `Object` - set of keys used for authenticaton when pushing notification to the client.
+            description: "`Object` - set of keys used for authenticaton when pushing notification to the client."
