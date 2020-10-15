@@ -25,20 +25,83 @@
 <!-- automatically generated documentation will be placed in here -->
 # API endpoints
 
-The following endpoints are defined in this API:
-- [/register](#/register)
-- [/public-key](#/public-key)
+The origin and root path for this API is: `https://api.klimapartner.net/push`
 
-## `/register` (target lambda → [register-sub](#register-sub)) <a name="/register"></a>
+The following endpoints are defined in this API:
+- [/public-key](#/public-key)
+- [/register](#/register)
+
+## `/public-key` <a name="/public-key"></a>
 
 Supported methods:
-- [POST](#POST)
+- [GET](#public-key-GET)
 
-### `POST`
+### `GET` (target lambda → [get-public-key](#get-public-key)) <a name="public-key-GET"></a>
+
+**Description:**
+
+This endpoint returns the public key used in the push-notification protocol. **For now it only returns the public key related to the Kaskadi project!**
+
+**Authorization:**
+
+|   Type  | Identity source                                       |
+| :-----: | :---------------------------------------------------- |
+| Cognito | <ul><li>method.request.header.Authorization</li></ul> |
+
+**Query string parameters:**
+
+No query string parameters found for this method.
+
+**Request body:**
+
+No body found for this method.
+
+**Examples:**
+
+<details>
+<summary>Example #1</summary>
+
+_Request:_
+
+```HTTP
+GET https://api.klimapartner.net/push/public-key
+
+Headers:
+  Authorization: Bearer COGNITO_ACCESS_TOKEN
+```
+
+_Response:_
+
+```HTTP
+Status code:
+  200
+
+Headers:
+  Access-Control-Allow-Origin: *
+
+Body:
+  {
+    "publicKey": "kaskadi_push_notification_public_key"
+  }
+```
+</details>
+
+## `/register` <a name="/register"></a>
+
+Supported methods:
+- [POST](#register-POST)
+
+### `POST` (target lambda → [register-sub](#register-sub)) <a name="register-POST"></a>
 
 **Description:**
 
 This endpoint allows a client to register for push-notification. The body should contain subscription data as defined [here](https://developers.google.com/web/ilt/pwa/introduction-to-push-notifications#how_web_push_works).
+
+**Authorization:**
+
+|   Type  | Identity source                                       |
+| :-----: | :---------------------------------------------------- |
+| Cognito | <ul><li>method.request.header.Authorization</li></ul> |
 
 **Query string parameters:**
 
@@ -51,41 +114,44 @@ No query string parameters found for this method.
 | `endpoint` |         | Client endpoint for the push-notification system.                                      |
 |   `keys`   |         | `Object` - set of keys used for authenticaton when pushing notification to the client. |
 
-_Example request:_
+**Examples:**
+
+<details>
+<summary>Example #1</summary>
+
+_Request:_
 
 ```HTTP
-POST /register
+POST https://api.klimapartner.net/push/register
 
-{
-  "endpoint": "endpoint_value",
-  "keys": "keys_value"
-}
+Headers:
+  Authorization: Bearer COGNITO_ACCESS_TOKEN
+
+Body:
+  {
+    "endpoint": "https://fcm.googleapis.com/fcm/send/dpH5lCsTSSM:APA91bHqjZxM0VImWWqDRN7U0a3AycjUf4O-byuxb_wJsKRaKvV_iKw56s16ekq6FUqoCF7k2nICUpd8fHPxVTgqLunFeVeB9lLCQZyohyAztTH8ZQL9WCxKpA6dvTG_TUIhQUFq_n",
+    "keys": {
+      "p256dh": "BLQELIDm-6b9Bl07YrEuXJ4BL_YBVQ0dvt9NQGGJxIQidJWHPNa9YrouvcQ9d7_MqzvGS9Alz60SZNCG3qfpk=",
+      "auth": "4vQK-SvRAN5eo-8ASlrwA=="
+    }
+  }
 ```
 
-## `/public-key` (target lambda → [get-public-key](#get-public-key)) <a name="/public-key"></a>
-
-Supported methods:
-- [GET](#GET)
-
-### `GET`
-
-**Description:**
-
-This endpoint returns the public key used in the push-notification protocol.
-
-**Query string parameters:**
-
-No query string parameters found for this method.
-
-**Request body:**
-
-No body found for this method.
-
-_Example request:_
+_Response:_
 
 ```HTTP
-GET /public-key
+Status code:
+  201
+
+Headers:
+  Access-Control-Allow-Origin: *
+
+Body:
+  {
+    "message": "Subscriptions successfully registered!"
+  }
 ```
+</details>
 
 # API resources
 
@@ -120,7 +186,7 @@ Layer for push-api
 
 ### Dependencies
 
-- `aws-es-client`, version: `^1.0.2` ([see on NPM](https://www.npmjs.com/package/aws-es-client))
+- `aws-es-client`, version: `1.0.2` ([see on NPM](https://www.npmjs.com/package/aws-es-client))
 - `create-es-client` (local utility)
 
 See [configuration file](./serverless.yml) for more details.
