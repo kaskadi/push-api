@@ -165,17 +165,17 @@ The following layers are used in this API:
 
 ## register-sub <a name="register-sub"></a>
 
-|     Name     | Sources                | Timeout |                      Handler                      | Layers                                              |
-| :----------: | :--------------------- | :-----: | :-----------------------------------------------: | :-------------------------------------------------- |
-| register-sub | <ul><li>HTTP</li></ul> | default | [handler](./lambdas/register-sub/register-sub.js) | <ul><li>[push-api-layer](#push-api-layer)</li></ul> |
+|     Name     | Sources                       | Timeout |                      Handler                      | Layers                                              |
+| :----------: | :---------------------------- | :-----: | :-----------------------------------------------: | :-------------------------------------------------- |
+| register-sub | <ul><li>HTTP (POST)</li></ul> | default | [handler](./lambdas/register-sub/register-sub.js) | <ul><li>[push-api-layer](#push-api-layer)</li></ul> |
 
 See [configuration file](./serverless.yml) for more details.
 
 ## get-public-key <a name="get-public-key"></a>
 
-|      Name      | Sources                | Timeout |                      Handler                      | Layers                                              |
-| :------------: | :--------------------- | :-----: | :-----------------------------------------------: | :-------------------------------------------------- |
-| get-public-key | <ul><li>HTTP</li></ul> | default | [handler](./lambdas/public-key/get-public-key.js) | <ul><li>[push-api-layer](#push-api-layer)</li></ul> |
+|      Name      | Sources                      | Timeout |                      Handler                      | Layers                                              |
+| :------------: | :--------------------------- | :-----: | :-----------------------------------------------: | :-------------------------------------------------- |
+| get-public-key | <ul><li>HTTP (GET)</li></ul> | default | [handler](./lambdas/public-key/get-public-key.js) | <ul><li>[push-api-layer](#push-api-layer)</li></ul> |
 
 See [configuration file](./serverless.yml) for more details.
 
